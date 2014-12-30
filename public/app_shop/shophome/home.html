@@ -1,0 +1,73 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 ng-bind="message" class="panel-title"></h3>
+    </div>
+    <div class="panel-body">
+        <table class="table table-stripped">
+            <thead>
+            <tr>
+                <th>Brand</th>
+                <th>Description</th>
+                <th>Price</th>
+                <th>&nbsp;</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="product in productList | orderBy:sortField">
+                <td ng-bind="product.brand"></td>
+                <td ng-bind="product.description"></td>
+                <td ng-bind="product.price | currency"></td>
+                <td>
+                    <button class="btn btn-primary" ng-click="addToCart(product)">Add to Cart</button>
+                </td>
+            </tr>
+
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">Shopping Cart Receipt</h3>
+    </div>
+    <div class="panel-body">
+        <p ng-hide="cartDisplay.productCollection.length">No items currently in your cart.</p>
+        <table class="table table-stripped" ng-show="cartDisplay.productCollection.length">
+            <thead>
+            <tr>
+                <th>Brand</th>
+                <th>Description</th>
+                <th>Price</th>
+                <th>&nbsp;</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="product in cartDisplay.productCollection">
+                <td ng-bind="product.brand"></td>
+                <td ng-bind="product.description"></td>
+                <td ng-bind="product.price | currency"></td>
+                <td>
+                    <button class="btn btn-danger" ng-click="removeFromCart(product)">Remove</button>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="4">&nbsp;</td>
+            </tr>
+            <tr>
+                <td colspan="2"></td>
+                <td>SubTotal</td>
+                <td><span ng-bind="cartDisplay.subTotal | currency"></span></td>
+            </tr>
+            <tr>
+                <td colspan="2"></td>
+                <td><strong>Total</strong></td>
+                <td><strong><span ng-bind="cartDisplay.total | currency"></span></strong></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+

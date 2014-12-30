@@ -1,0 +1,108 @@
+<h2>Contact Management</h2>
+
+<ul class="nav nav-pills navbar-right">
+    <li role="presentation" ng-class="{active: toggle.displayType == 'list'}" ><a href="" ng-click="swapViews('list')"><i class="fa fa-list"></i>&nbsp; List</a></li>
+    <li role="presentation" ng-class="{active: toggle.displayType == 'grid'}"><a href="" ng-click="swapViews('grid')"><i class="fa fa-th"></i>&nbsp; Grid</a></li>
+
+</ul>
+
+<p></p>
+<form class="form-inline" role="form">
+    <div class="form-group">
+        <div class="input-group">
+            <label class="sr-only" for="InputSearch">Search</label>
+            <input type="text" class="form-control" id="InputSearch" ng-model="query" placeholder="Search..." />
+            <div class="input-group-addon">
+                <i class="fa fa-search"></i>
+            </div>
+        </div>
+    </div>
+</form>
+<p style="padding: 10px;"></p>
+<table class="table table-bordered table-striped table-condensed" ng-show="addressList.length && toggle.displayType == 'list'">
+    <thead>
+    <tr>
+        <th>
+            <a href="" ng-click="sortField ='firstname'; toggle.reverse = !toggle.reverse; toggle.caretOne = !toggle.caretOne">First
+                Name</a>
+            <span ng-class="toggle.caretOne ? 'caret' : ''"></span>
+        </th>
+        <th>
+            <a href="" ng-click="sortField = 'lastname'; toggle.reverse = !toggle.reverse; toggle.caretTwo = !toggle.caretTwo">Last
+                Name</a>
+            <span ng-class="toggle.caretTwo ? 'caret' : ''"></span>
+        </th>
+        <th>
+            <a href="" ng-click="sortField = 'citystate'; toggle.reverse = !toggle.reverse; toggle.caretThree = !toggle.caretThree">Address</a>
+            <span ng-class="toggle.caretThree ? 'caret' : ''"></span>
+        </th>
+        <th style="width: 150px;"></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="address in addressList | filter:query | orderBy:sortField:toggle.reverse">
+        <td ng-bind="address.firstname"></td>
+        <td ng-bind="address.lastname"></td>
+        <td ng-bind="address.citystate"></td>
+        <td class="center-block">
+            <button ng-click="edit(address)" class="btn btn-primary btn-sm">edit</button>
+            <button ng-click="remove(address)" class="btn btn-danger btn-sm">delete</button>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<div ng-show="addressList.length && toggle.displayType == 'grid'">
+    <div style="width: 220px; margin-right: 5px; margin-bottom: 5px;"
+         class="panel panel-default pull-left"
+         ng-repeat="address in addressList | filter:query | orderBy:sortField:toggle.reverse">
+        <div class="panel-heading">
+            <span class="pull-right"><a href="" ng-click="remove(address)" class="text-danger">&times;</a></span>
+            <h4 ng-bind-template="{{address.firstname}} {{address.lastname}}"></h4>
+
+        </div>
+        <div class="panel-body">
+            <span ng-bind="address.citystate"></span><br />
+            <button ng-click="edit(address)" class="btn btn-primary btn-sm">edit</button>
+        </div>
+    </div>
+</div>
+
+<div class="clearfix" style="margin-bottom: 15px;"></div>
+
+<div ng-hide="addressList.length">
+    <hr />
+    <p class="text-muted">No records found ...</p>
+    <hr />
+</div>
+<p>
+    <button ng-click="showAddPanel()" class="btn btn-success">
+        <i class="fa fa-plus"></i> Add Person</button>
+</p>
+<div class="row">
+    <div class="col-md-5">
+        <div class="panel panel-default" ng-show="toggle.showPanel">
+            <div class="panel-body">
+                <h3 ng-bind="actionType"></h3>
+                <form role="form">
+                    <div class="form-group">
+                        <label for="InputFirstName">First Name</label>
+                        <input type="text" class="form-control" id="InputFirstName" placeholder="First Name" ng-model="form.contact.firstname" />
+                    </div>
+                    <div class="form-group">
+                        <label for="InputLastName">Last Name</label>
+                        <input type="text" class="form-control" id="InputLastName" placeholder="Last Name" ng-model="form.contact.lastname" />
+                    </div>
+                    <div class="form-group">
+                        <label for="InputCityState">City, State</label>
+                        <input type="text" class="form-control" id="InputCityState" placeholder="City, State" ng-model="form.contact.citystate" />
+                    </div>
+                    <button ng-click="savePerson(form.contact)" class="btn btn-primary">
+                        <i class="fa fa-check"></i> Save</button>
+                    <button ng-click="cancel()" class="btn btn-default">
+                        <i class="fa fa-times"></i> Cancel</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

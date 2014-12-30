@@ -1,0 +1,25 @@
+<h4>{{description}}</h4>
+
+
+<div ng-app="shopApp">
+
+    <ul class="nav nav-pills">
+        <li role="presentation" ui-sref-active="active"><a ui-sref="home" >Shop Home</a></li>
+        <li role="presentation" ui-sref-active="active"><a ui-sref="about" >About</a></li>
+    </ul>
+
+
+
+
+    <hr />
+    <div ui-view></div>
+
+
+
+</div>
+
+<script src="../vendor/angular/angular.js"></script>
+<script src="../vendor/angular/angular-ui-router.min.js"></script>
+<script src="../app_shop/app.js"></script>
+<script src="../app_shop/dataAccess/ShopFactory.js"></script>
+<script src="../app_shop/shophome/homeController.js"></script>
