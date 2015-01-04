@@ -22,6 +22,8 @@ body {
 }
 .footer p {margin-top: 15px;}
 
+.footer a { color: #c9c9c9; }
+
 
 .navbar-default, .footer {
 background-color: #43517A;
