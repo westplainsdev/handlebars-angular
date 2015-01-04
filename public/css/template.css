@@ -3,7 +3,7 @@ body {
     padding-top: 70px;
 }
 
-.main-body {min-height: 770px;}
+.main-body #contract-height{min-height: 450px;}
 
 .navbar-default, .footer {
     background-color: #43517A;

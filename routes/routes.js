@@ -9,6 +9,11 @@ module.exports = {
             res.render('index');
         });
 
+        app.get('/license', function(req, res){
+
+            res.render('license');
+        });
+
         app.get('/simple', function(req, res){
             var data = {name: 'Gorilla'};
             res.render('simple', data);
