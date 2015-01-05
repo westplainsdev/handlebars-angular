@@ -23,4 +23,6 @@ shopApp.config(function($stateProvider, $urlRouterProvider) {
             }
         });
 
+    // TODO: CHECKOUT - http://bootsnipp.com/snippets/featured/credit-card-form-bootstrap-3
+
 });
