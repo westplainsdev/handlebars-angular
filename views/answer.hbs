@@ -1,8 +1,19 @@
 
-    <h3>Server Response is:</h3>
+    <h4>The server response from Express is:</h4>
 
-    <p>Hello: {{html}}.</p>
-    <p> <a href="/question">Try again.</a></p>
+    <!--<p>Hello: {{html}}.</p>-->
+
+
+    <p>{{contact.userName}} with the email address of {{contact.email}} sent a message to you.</p>
+    <div class="well">
+        <h4>{{contact.subject}}</h4>
+        <p>{{contact.message}}</p>
+    </div>
+
+
+
+
+    <p> <a href="/question">Back to Contact Form.</a></p>
 
 
 

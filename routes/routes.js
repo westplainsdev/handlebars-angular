@@ -65,17 +65,24 @@ module.exports = {
 
         app.get('/question', function (req, res){
             var data = {
-                instructions: 'Fill out the form below'
+                instructions: 'Fill out the contact form below'
             };
 
             res.render('question', data);
         });
 
         app.post('/answer', function(req, res){
-            var userName = req.body.userName;
+
             var data = {
-                html: userName
-            }
+                contact: {
+                    userName:  req.body.userName,
+                    email:  req.body.email,
+                    subject: req.body.subject,
+                    message: req.body.message
+                }
+
+            };
+
             res.render('answer', data);
         });
 

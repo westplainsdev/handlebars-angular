@@ -1,14 +1,70 @@
 
-<h4>{{instructions}}</h4>
+<h4>Express Postback Example</h4>
+<p>{{instructions}}</p>
 
-<div class="col-md-6">
-    <form class="form-inline" role="form" action="/answer" method="post">
-        <div class="form-group">
-            <label for="exampleInputEmail1"> Enter your name:</label>
-            <input type="text" class="form-control" id="exampleInputEmail1"  name="userName" placeholder="...">
+
+
+<div class="row">
+    <div class="col-md-8">
+        <div class="well well-sm">
+            <form action="/answer" method="post">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="name">
+                                Name</label>
+                            <input type="text" class="form-control" id="name" placeholder="Enter name" required="required" name="userName"  />
+                        </div>
+                        <div class="form-group">
+                            <label for="email">
+                                Email Address</label>
+                            <div class="input-group">
+                                <span class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span>
+                                </span>
+                                <input type="email" class="form-control" id="email" placeholder="Enter email" required="required" name="email" /></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">
+                                Subject</label>
+                            <select id="subject" name="subject" class="form-control" required="required">
+                                <option value="na" selected="">Choose One:</option>
+                                <option value="General Customer Service">General Customer Service</option>
+                                <option value="Suggestions">Suggestions</option>
+                                <option value="Product Support">Product Support</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="name">
+                                Message</label>
+                            <textarea name="message" id="message" class="form-control" rows="9" cols="25" required="required"
+                                      placeholder="Message"></textarea>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <button type="submit" class="btn btn-primary pull-right" id="btnContactUs">
+                            Send Message</button>
+                    </div>
+                </div>
+            </form>
         </div>
-
-        <button type="submit" class="btn btn-primary">Submit</button>
-
-    </form>
+    </div>
+    <div class="col-md-4">
+        <form>
+            <legend><span class="glyphicon glyphicon-globe"></span> Our office</legend>
+            <address>
+                <strong>Simple Data, LLC</strong><br>
+                286 Youngman Ave, Suite 600<br>
+                San Francisco, CA 94107<br>
+                <abbr title="Phone">
+                    P:</abbr>
+                (123) 456-7890
+            </address>
+            <address>
+                <strong>Full Name</strong><br>
+                <a href="mailto:#">first.last@example.com</a>
+            </address>
+        </form>
+    </div>
 </div>
