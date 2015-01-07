@@ -15,5 +15,16 @@ module.exports = {
             res.send(productList);
 
         });
+
+        app.get('/api/address/contacts', function (req, res){
+            var contactList = [
+                {firstname: 'Bob', lastname: 'Jones', citystate: 'Seattle, WA'},
+                {firstname: 'Sandy', lastname: 'Roberts', citystate: 'Portland, OR'},
+                {firstname: 'Larry', lastname: 'Walker', citystate: 'San Francisco, CA'},
+                {firstname: 'Adrian', lastname: 'Parker', citystate: 'Las Vegas, NV'}
+            ];
+            
+            res.send(contactList);
+        });
     }
 };

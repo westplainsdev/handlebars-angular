@@ -1,6 +1,11 @@
 addressApp.controller('address.bookController', function ($scope, ContactFactory) {
     // serving up the data from a factory
-    var addressArray = ContactFactory.getDataList;
+    var addressArray = [];
+
+    ContactFactory.loadContacts().then(function(response) {
+        addressArray = response.data;
+        $scope.addressList = addressArray;
+    });
 
     var resetForm = function () {
             $scope.form.contact = {};
@@ -26,7 +31,6 @@ addressApp.controller('address.bookController', function ($scope, ContactFactory
         },
         editing = false;
 
-    $scope.addressList = addressArray;
     $scope.sortField = 'firstname';
     // this is used as a collection object. parent/child type of setup.
     $scope.form = {

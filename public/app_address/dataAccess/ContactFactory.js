@@ -1,10 +1,8 @@
-addressApp.factory('ContactFactory', function(){
+addressApp.factory('ContactFactory', function($http){
     return {
-        getDataList: [
-            {firstname: 'Bob', lastname: 'Jones', citystate: 'Seattle, WA'},
-            {firstname: 'Sandy', lastname: 'Roberts', citystate: 'Portland, OR'},
-            {firstname: 'Larry', lastname: 'Walker', citystate: 'San Francisco, CA'},
-            {firstname: 'Adrian', lastname: 'Parker', citystate: 'Las Vegas, NV'}
-        ]
+
+        loadContacts: function(){
+            return $http.get('/api/address/contacts');
+        }
     };
 });
