@@ -38,6 +38,6 @@ shopApp.controller('shop.homeController', function($scope, ShopFactory){
         cart.productCollection.splice(index, 1);
 
         $scope.cartDisplay = cart;
-    }
+    };
 
 });

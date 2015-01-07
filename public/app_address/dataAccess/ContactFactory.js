@@ -6,5 +6,5 @@ addressApp.factory('ContactFactory', function(){
             {firstname: 'Larry', lastname: 'Walker', citystate: 'San Francisco, CA'},
             {firstname: 'Adrian', lastname: 'Parker', citystate: 'Las Vegas, NV'}
         ]
-    }
+    };
 });

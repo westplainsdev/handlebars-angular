@@ -4,6 +4,6 @@ shopApp.factory('ShopFactory', function($http){
         loadProducts: function(){
             return $http.get('/api/shop/products');
         }
-    }
+    };
 
 });
