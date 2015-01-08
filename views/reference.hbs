@@ -1,0 +1,39 @@
+<h3>Technologies Used</h3>
+<hr />
+<h4>Server Technology</h4>
+<p>While building out this application, we used a number of different technologies, almost all of them javascript based.
+    For example, the site itself is hosted on a <a href="http://nodejs.org/">Node.js <i class="fa fa-external-link"></i></a> web server which runs on top of Google's V8
+    rendering engine. Additional libraries are included using node_modules from the main <a href="https://www.npmjs.com/">NPM repository</a>.
+    The <a href="http://expressjs.com/">Express <i class="fa fa-external-link"></i></a> middleware has been included. This gives us the ability to have handle requests and responses
+    from a client web browser.</p>
+
+<p>The handing of marking up requested pages falls to an NPM package called <a href="https://github.com/ericf/express-handlebars">ExpressHandlebars <i class="fa fa-external-link"></i></a>.
+    This particular package uses the common <a href="http://handlebarsjs.com/">Handlebars <i class="fa fa-external-link"></i></a> templating library to allow the
+    pages to have sections easily data bound to data found on the server side of things. The standard Express view engine (Jade) has
+    been replaced with a server side rendition of Handlebars which still gives the application a master layout page
+    along with variable partial pages.</p>
+
+<h4>Look and Feel</h4>
+<p>To give give the site a nice appearance, <a href="http://getbootstrap.com/">Bootstrap 3.x <i class="fa fa-external-link"></i></a> has been included. The
+    site is using some default markup from Bootstrap for the top menu and the bottom footer. Along with the color and
+    typeface given to us from Bootstrap, the site is also mobile responsive by default due to Bootstraps mobile first incentive.</p>
+
+<h4>Plug and Play Single Page Applications</h4>
+<p>Moving further up the stack, <a href="https://angularjs.org/">AngularJS <i class="fa fa-external-link"></i></a> has been included in this example.
+    As you work through the different sections and start to see more line of business style pages such as an <a href="/address">address book</a> and
+    a <a href="/shop">shopping cart</a>, you will have
+    found where we keep the AngularJS applications. To keep the development of each application simple we've stuck to
+    the single responsibility principal of each single page application (SPA). Hence, if you see an address book, you will only
+    be manging addresses, not making purchases. In reverse, if you're buying items from a shopping cart, you will not be
+    managing addresses. In this fashion we feel that the frame work allows many different SPA's to be created and used in a plug and play
+    fashion. As a final note, all of the AngularJS applications use the more common 3rd party navigation called
+    <a href="http://angular-ui.github.io/ui-router/site/#/api/ui.router">UI Router <i class="fa fa-external-link"></i></a></p>
+
+<p>We hope you like what you've found so far and are able to take this site template and expand it to fit your needs.</p>
+
+
+
+
+
+
+

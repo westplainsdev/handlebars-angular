@@ -14,6 +14,10 @@ module.exports = {
             res.render('license');
         });
 
+        app.get('/reference', function (req, res){
+            res.render('reference');
+        });
+
         app.get('/simple', function(req, res){
             var data = {name: 'Gorilla'};
             res.render('simple', data);
