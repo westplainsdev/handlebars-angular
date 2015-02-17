@@ -1,10 +1,10 @@
 var express = require('express');
 var bodyParser = require('body-parser');
-// var request = require('request');
 var app = express();
 var expressHbs = require('express3-handlebars');
 var config = require('./configuration/config.js');
 var routes = require('./routes/routes');
+var applications = require('./routes/applications');
 var apis = require('./routes/api');
 
 app.use(bodyParser.json());
@@ -13,13 +13,15 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(express.static(__dirname + '/public'));
 
-app.engine('hbs', expressHbs({extname:'hbs', defaultLayout:'main.hbs'}));
+// define extra view directories here using the "partialsDir" property.
+app.engine('hbs', expressHbs({extname:'hbs', defaultLayout:'main.hbs', partialsDir: 'views/partials/', partialsDir: 'views/apps/' }));
 app.set('view engine', 'hbs');
 
 // setup application page routes
 routes.register(app);
+applications.register(app);
 
-// setup api endpoints for single page applications
+// setup api endpoints for single page apps
 apis.register(app);
 
 // 404 errors after all other routes have been attempted

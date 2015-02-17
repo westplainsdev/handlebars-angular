@@ -1,4 +1,7 @@
 // SINGLE PAGE APPLICATION API ENDPOINTS
+var nodemailer = require("nodemailer"); //https://github.com/andris9/Nodemailer
+var config = require('../configuration/config.js');
+
 
 module.exports = {
     register: function(app) {
@@ -26,6 +29,49 @@ module.exports = {
             ];
             
             res.send(contactList);
+        });
+
+
+        // endpoint targeted by angular application for sending email.
+        // see the configuration file referenced above for specific mail settings.
+        app.post('/api/mail/send', function (req, res){
+            // http://codeforgeek.com/2014/07/send-e-mail-node-js/
+            var mailMessage = req.body.mailMessage;
+
+            var mailMessageBody = '<p><strong>Name:</strong> ' + mailMessage.name + '&nbsp; <strong>Email:</strong> ' + mailMessage.email + '</p>'
+                + '<p><strong>Ecommerce Enhancement Request Details</strong></p><hr />'
+                + '<p><strong>What:</strong> ' + mailMessage.what + '</p>'
+                + '<p><strong>Who:</strong> ' + mailMessage.who + '</p>'
+                + '<p><strong>Dates:</strong> ' + mailMessage.dates+ '</p>'
+                + '<p><strong>Analytics:</strong> ' + mailMessage.analytics+ '</p>'
+                + '<p><strong>Customer Service:</strong> ' +  mailMessage.customerservice+ '</p>'
+                + '<p><strong>Where:</strong> ' + mailMessage.where+ '</p>';
+
+
+            var smtpTransport = nodemailer.createTransport("SMTP",{
+                service: config.mail.service,
+                auth: {
+                    user: config.mail.user,
+                    pass: config.mail.pass
+                }
+            });
+
+            var mailOptions={
+                to : config.sendTo.receiverEmail,
+                subject : config.sendTo.subject,
+                html : mailMessageBody
+            }
+            console.log(mailOptions);
+            smtpTransport.sendMail(mailOptions, function(error, response){
+                if(error){
+                    console.log(error);
+                    res.send("Something prevented the email from being sent.");
+                }else{
+                    console.log("Message sent: " + response.message);
+                    res.send("Message successfully sent");
+                }
+            });
+
         });
     }
 };

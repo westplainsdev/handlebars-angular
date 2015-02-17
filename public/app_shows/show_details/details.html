@@ -1,0 +1,18 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">{{selectedShow.name}}</h3>
+    </div>
+    <div class="panel-body">
+
+        <div class="row">
+            <div class="col-md-3"><img height="317" width="214" ng-src="{{selectedShow.imgUrl}}" class="img-thumbnail" /></div>
+            <div class="col-md-6">
+                <p>
+                    {{selectedShow.description}}
+                </p>
+                <p>{{selectedShow.cast}} <span class="pull-right" ng-bind-template="{{selectedShow.runtime}} - {{selectedShow.rating}}"></span>   </p>
+            </div>
+            <div class="col-md-3">&nbsp;</div>
+        </div>
+    </div>
+</div>

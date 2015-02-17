@@ -20,7 +20,7 @@ module.exports = {
 
         app.get('/simple', function(req, res){
             var data = {name: 'Gorilla'};
-            res.render('simple', data);
+            res.render('partials/simple', data);
         });
 
         app.get('/complex', function(req, res){
@@ -35,7 +35,7 @@ module.exports = {
                     }
                 }
             };
-            res.render('complex', data);
+            res.render('partials/complex', data);
         });
 
         app.get('/loop', function(req, res){
@@ -54,7 +54,7 @@ module.exports = {
                 days: days
             };
 
-            res.render('loop', data);
+            res.render('partials/loop', data);
         });
 
         app.get('/logic', function(req, res){
@@ -64,7 +64,7 @@ module.exports = {
                 skyIsBlue: "yes"
             };
 
-            res.render('logic', data);
+            res.render('partials/logic', data);
         });
 
         app.get('/question', function (req, res){
@@ -72,7 +72,7 @@ module.exports = {
                 instructions: 'Fill out the contact form below'
             };
 
-            res.render('question', data);
+            res.render('partials/question', data);
         });
 
         app.post('/answer', function(req, res){
@@ -87,19 +87,7 @@ module.exports = {
 
             };
 
-            res.render('answer', data);
+            res.render('partials/answer', data);
         });
-
-        app.get('/address', function (req, res){
-            var data = { description: 'AngularJS address book example application.'}
-            res.render('address', data);
-        });
-
-        app.get('/shop', function (req, res){
-            var data = { description: 'AngularJS shopping cart example application.'}
-            res.render('shop', data);
-        });
-
-
     }
 };

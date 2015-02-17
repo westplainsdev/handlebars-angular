@@ -1296,8 +1296,8 @@ function encodeUriQuery(val, pctEncodeSpaces) {
  *
  * Only one AngularJS application can be auto-bootstrapped per HTML document. The first `ngApp`
  * found in the document will be used to define the root element to auto-bootstrap as an
- * application. To run multiple applications in an HTML document you must manually bootstrap them using
- * {@link angular.bootstrap} instead. AngularJS applications cannot be nested within each other.
+ * application. To run multiple apps in an HTML document you must manually bootstrap them using
+ * {@link angular.bootstrap} instead. AngularJS apps cannot be nested within each other.
  *
  * You can specify an **AngularJS module** to be used as the root module for the application.  This
  * module will be loaded into the {@link auto.$injector} when the application is bootstrapped and
@@ -1383,7 +1383,7 @@ function angularInit(element, bootstrap) {
  *
  * Angular will detect if it has been loaded into the browser more than once and only allow the
  * first loaded script to be bootstrapped and will report a warning to the browser console for
- * each of the subsequent scripts. This prevents strange results in applications, where otherwise
+ * each of the subsequent scripts. This prevents strange results in apps, where otherwise
  * multiple instances of Angular try to work on the DOM.
  *
  * <example name="multi-bootstrap" module="multi-bootstrap">
@@ -4162,7 +4162,7 @@ var $AnimateProvider = ['$provide', function($provide) {
    * therefore enable $animate to attempt to perform an animation on any element.
    * When setting the classNameFilter value, animations will only be performed on elements
    * that successfully match the filter expression. This in turn can boost performance
-   * for low-powered devices as well as applications containing a lot of structural operations.
+   * for low-powered devices as well as apps containing a lot of structural operations.
    * @param {RegExp=} expression The className expression which will be checked against all animations
    * @return {RegExp} The current CSS className expression value. If null then there is no expression value
    */
@@ -7574,7 +7574,7 @@ function $HttpProvider() {
      * HTTP servers via the browser's [XMLHttpRequest](https://developer.mozilla.org/en/xmlhttprequest)
      * object or via [JSONP](http://en.wikipedia.org/wiki/JSONP).
      *
-     * For unit testing applications that use `$http` service, see
+     * For unit testing apps that use `$http` service, see
      * {@link ngMock.$httpBackend $httpBackend mock}.
      *
      * For a higher level of abstraction, please check out the {@link ngResource.$resource
@@ -7859,7 +7859,7 @@ function $HttpProvider() {
      *
      * # Security Considerations
      *
-     * When designing web applications, consider security threats from:
+     * When designing web apps, consider security threats from:
      *
      * - [JSON vulnerability](http://haacked.com/archive/2008/11/20/anatomy-of-a-subtle-json-vulnerability.aspx)
      * - [XSRF](http://en.wikipedia.org/wiki/Cross-site_request_forgery)
@@ -11919,7 +11919,7 @@ function $$RAFProvider(){ //rAF
  *
  * The current default is 10 iterations.
  *
- * In complex applications it's possible that the dependencies between `$watch`s will result in
+ * In complex apps it's possible that the dependencies between `$watch`s will result in
  * several digest iterations. However if an application needs more than the default 10 digest
  * iterations for its model to stabilize then you should investigate what is causing the model to
  * continuously change during the digest.
@@ -16362,7 +16362,7 @@ function FormController(element, attrs, $scope, $animate) {
  *
  * # Submitting a form and preventing the default action
  *
- * Since the role of forms in client-side Angular applications is different than in classical
+ * Since the role of forms in client-side Angular apps is different than in classical
  * roundtrip apps, it is desirable for the browser not to translate the form submission into a full
  * page reload that sends the data to the server. Instead some javascript logic should be triggered
  * to handle the form submission in an application-specific way.

@@ -1,0 +1,103 @@
+
+<div class="row">
+        <div class="col-md-8 col-md-offset-2" ng-hide="isSubmitted">
+            <div class="well well-sm">
+                <form class="form-horizontal" ng-hide="isSubmitted">
+                    <fieldset>
+                        <legend class="text-center">Enhancement Request</legend>
+
+                        <!-- Name input-->
+                        <div class="form-group">
+                            <label class="col-md-3 control-label" for="name">Name</label>
+                            <div class="col-md-9">
+                                <input  type="text" placeholder="Your name" class="form-control" ng-model="message.name">
+                            </div>
+                        </div>
+
+                        <!-- Email input-->
+                        <div class="form-group">
+                            <label class="col-md-3 control-label" for="email">Your E-mail</label>
+                            <div class="col-md-9">
+                                <input id="email" name="email" type="text" placeholder="Your email" class="form-control" ng-model="message.email">
+                            </div>
+                        </div>
+
+                        <!-- Message body -->
+                        <div class="form-group">
+                            <label class="col-md-3 control-label" for="message">What needs to be done</label>
+                            <div class="col-md-9">
+                                <textarea class="form-control" id="message" name="message" placeholder="What needs to be done..." rows="5" ng-model="message.what"></textarea>
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label class="col-md-3 control-label" for="name">Primary Contact/Owner</label>
+                            <div class="col-md-9">
+                                <input id="name" name="name" type="text" placeholder="Primary Contact/Owner" class="form-control" ng-model="message.who">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-3 control-label" for="message">IMPACT</label>
+                            <div class="col-md-9">
+                                <textarea class="form-control" id="message" name="message" placeholder="Impact to consumers and overall conversion rate..." rows="5" ng-model="message.impact"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-3 control-label" for="message">CRITICAL DATE(S)</label>
+                            <div class="col-md-9">
+                                <textarea class="form-control" id="message" name="message" placeholder="Critical Date(s) associated with task..." rows="5" ng-model="message.dates"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-3 control-label" for="message">Analytics
+                            </label>
+                            <div class="col-md-9">
+                                <textarea class="form-control" id="message" name="message" placeholder="Explain how this change will be measured and what analytics requirements exist..." rows="5" ng-model="message.analytics"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-3 control-label" for="message">Customer Service
+                            </label>
+                            <div class="col-md-9">
+                                <textarea class="form-control" id="message" name="message" placeholder="Will this effort require new training?..." rows="5" ng-model="message.customerservice"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-3 control-label" for="message">Where</label>
+                            <div class="col-md-9">
+                                <textarea class="form-control" id="message" name="message" placeholder="Where on the site does this problem exist?" rows="5" ng-model="message.where"></textarea>
+                            </div>
+                        </div>
+
+                        <!-- Form actions -->
+                        <div class="form-group">
+                            <div class="col-md-12 text-right">
+                                <button class="btn btn-primary btn-lg" ng-click="submitEmail()">Send Request</button>
+                            </div>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+
+        <div class="col-md-8 col-md-offset-2" ng-show="isSubmitted">
+<div ng-show="isSubmitted">
+            <p>Name: {{sentMessage.name}} Email: {{sentMessage.email}}</p>
+            <p ng-bind="sentMessage.what"></p>
+            <p ng-bind="sentMessage.who"></p>
+            <p ng-bind="sentMessage.dates"></p>
+            <p ng-bind="sentMessage.analytics"></p>
+            <p ng-bind="sentMessage.customerservice"></p>
+            <p ng-bind="sentMessage.where"></p>
+
+            <h3 ng-show="pageMesage" ng-bind="pageMesage"></h3>
+        <p><button ng-click="reset()" class="btn btn-danger">Reset</button></p>
+</div>
+        </div>
+    </div>

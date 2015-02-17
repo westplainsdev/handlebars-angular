@@ -1,0 +1,34 @@
+<div>
+    <h4 class="pull-right text-muted" ng-bind-template="Indentifier: {{hashCode}}"></h4>
+    <h3 ng-bind-template="Hello from {{person.fullname}}"></h3>
+    <p>So a little about me:</p>
+
+    <p>I am a <span ng-bind="person.gender"></span>, born on <span ng-bind="person.dateofbirth | date"></span>.
+    I live at <span ng-bind="person.address"></span>, and my phone number is  <span ng-bind="person.phonenumber"></span>
+    </p>
+
+</div>
+
+
+<div class="btn-group" role="group" aria-label="...">
+    <button type="button" class="btn btn-default" ng-click="setCondition('warning')">Warning</button>
+    <button type="button" class="btn btn-default" ng-click="setCondition('error')">Error</button>
+    <button type="button" class="btn btn-default" ng-click="setCondition('good')">Good</button>
+</div>
+
+
+<div class="alert"
+     ng-class="{ 'alert-danger': isError, 'alert-warning': isWarning, 'alert-success': !isError && !isWarning }"
+     style="margin-top: 25px; padding: 15px; width: 200px;">{{informationMessage}}</div>
+
+
+
+<div>
+    <h3>Testing out native LocalStorage</h3>
+    <p>
+        <button type="button" class="btn btn-default" ng-click="addLocalStorage()">add to LocalStorage</button>
+        <button type="button" class="btn" ng-class="{'btn-default': !storageActive, 'btn-info': storageActive}" ng-click="readFromStorage()">read From Storage</button>
+        <button type="button" class="btn" ng-class="{'btn-default': !storageActive, 'btn-danger': storageActive}" ng-click="removeFromStorage()">remove From Storage</button>
+    </p>
+    <p ng-bind="localMessage"></p>
+</div>
