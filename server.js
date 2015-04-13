@@ -34,6 +34,18 @@ applications.register(app);
 // setup api endpoints for single page applications
 apis.register(app);
 
+
+// 404 must be after all other routes  which are not already handled.
+app.use(function(req, res, next){
+    res.status(404);
+
+    // respond with html page
+    if (req.accepts('html')) {
+        res.render('404', { url: req.url });
+        return;
+    }
+});
+
 app.listen(config.server.port);
 
 console.log("Server started on port: %d", config.server.port);
