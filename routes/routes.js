@@ -67,6 +67,29 @@ module.exports = {
             res.render('partials/logic', data);
         });
 
+        app.get('/alt', function(req, res){
+            var data = {message: 'JavaScript starter template', layout: 'alt_layout'};
+            res.render('partials/alt_content', data);
+        });
+
+        app.get('/myprofile', function(req, res){
+
+            var data = {user:
+            {
+                firstname:'Jane',
+                lastname:'Bishop',
+                company:'Some Cool Vendor',
+                email:'janesemail@contractor.hallmark.com',
+                timeZone: 'Central Time (US &amp; Canada)',
+                username:'janeuser',
+                password: '11111122333'
+            }
+            };
+
+
+            res.render('partials/myprofile', data);
+        });
+
         app.get('/question', function (req, res){
             var data = {
                 instructions: 'Fill out the contact form below'

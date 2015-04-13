@@ -1,0 +1,14 @@
+<div>
+    <h3>Modify array length</h3>
+    <p><button type="button" class="btn btn-default" ng-click="increaseArray()">Add Object</button> </p>
+    <h4>Current Array Length is: {{objectCollection.length || 0}}</h4>
+    <span ng-repeat="item in objectCollection">
+    {{item.name}} - ID: {{item.id}} <button type="button" class="btn btn-danger" ng-click="removeItem(item)">X</button>
+        <button type="button" class="btn btn-default" ng-click="selectObject(item)">select</button>
+    </span>
+</div>
+
+<div ng-show="found">
+    <h3>ID: {{found.id}}</h3>
+    <input type="text" ng-model="found.name" />  <button type="button" class="btn btn-success" ng-click="saveEdit(found)">Save</button>
+</div>

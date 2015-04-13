@@ -19,7 +19,7 @@ chanceApp.controller('chance.mailController', function($scope, $http){
         $scope.message = {};
         $scope.isSubmitted = true;
         $scope.sentMessage = mailMessage;
-       // sendMail(); disabled for testing.
+        sendMail();
     }
 
     $scope.reset = function(){

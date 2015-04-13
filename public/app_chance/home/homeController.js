@@ -1,4 +1,4 @@
-chanceApp.controller('chance.homeController', function($scope, LocalStorageService, ConditionMessage){
+chanceApp.controller('chance.homeController', function($scope, $http, LocalStorageService, ConditionMessage){
 
     // http://chancejs.com/#
 
@@ -21,6 +21,12 @@ chanceApp.controller('chance.homeController', function($scope, LocalStorageServi
             $scope.isError = currentCondition.isError;
             $scope.isWarning = currentCondition.isWarning;
             $scope.informationMessage = currentCondition.informationMessage;
+        },
+
+        loadUrls = function(){
+            $http.get('/api/loadUrls').success(function(result){
+                $scope.url = result;
+            });
         };
 
     $scope.person = person;
@@ -45,5 +51,5 @@ chanceApp.controller('chance.homeController', function($scope, LocalStorageServi
 
     // run on page load
     setMessagesAndFlags(LocalStorageService.checkStorage());
-
+    loadUrls();
 });
