@@ -18,7 +18,7 @@
                 <td ng-bind="product.description"></td>
                 <td ng-bind="product.price | currency"></td>
                 <td>
-                    <button class="btn btn-primary" ng-click="addToCart(product)"><i class="fa fa-plus"></i></button>
+                    <button class="btn btn-primary" ng-click="addToCart(product)">Add to Cart</button>
                 </td>
             </tr>
 
@@ -30,7 +30,7 @@
 
 <div class="panel panel-default">
     <div class="panel-heading">
-        <h3 class="panel-title">Shopping Cart Receipt</h3>
+        <h3 class="panel-title">Shopping Cart Summary</h3>
     </div>
     <div class="panel-body">
         <p ng-hide="cartDisplay.productCollection.length">No items currently in your cart.</p>
@@ -49,7 +49,7 @@
                 <td ng-bind="product.description"></td>
                 <td ng-bind="product.price | currency"></td>
                 <td>
-                    <button class="btn btn-danger" ng-click="removeFromCart(product)"><i class="fa fa-trash"></i></button>
+                    <button class="btn btn-danger" ng-click="removeFromCart(product)">Remove</button>
                 </td>
             </tr>
             <tr>
@@ -67,7 +67,9 @@
             </tr>
             <tr>
                 <td colspan="3"></td>
-                <td><button class="btn btn-success">Checkout</button></td>
+                <td>  <button type="button" class="btn btn-success" ng-click="checkout()">
+                    Checkout <span class="glyphicon glyphicon-play"></span>
+                </button> </td>
             </tr>
             </tbody>
         </table>

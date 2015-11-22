@@ -1,0 +1,117 @@
+<style>
+    .btn-file {
+        position: relative;
+        overflow: hidden;
+    }
+    .btn-file input[type=file] {
+        position: absolute;
+        top: 0;
+        right: 0;
+        min-width: 100%;
+        min-height: 100%;
+        font-size: 100px;
+        text-align: right;
+        filter: alpha(opacity=0);
+        opacity: 0;
+        outline: none;
+        background: white;
+        cursor: inherit;
+        display: block;
+    }
+</style>
+<h1>Edit Profile</h1>
+<hr>
+<div class="row">
+    <!-- left column -->
+    <div class="col-md-3">
+        <div class="text-center">
+            <img src="//placehold.it/100" class="avatar img-circle" alt="avatar">
+            <h6>Upload a different photo...</h6>
+
+            <span class="btn btn-success btn-file">
+                <i class="fa fa-search"></i>&nbsp;
+                Browse <input type="file">
+            </span>
+        </div>
+    </div>
+
+    <!-- edit form column -->
+    <div class="col-md-9 personal-info">
+        <div class="alert alert-info alert-dismissable">
+            <a class="panel-close close" data-dismiss="alert">×</a>
+            <i class="fa fa-coffee"></i>
+            This is an <strong>.alert</strong>. Use this to show important messages to the user.
+        </div>
+        <h3>Personal info</h3>
+
+        <form class="form-horizontal" role="form">
+            <div class="form-group">
+                <label class="col-lg-3 control-label">First name:</label>
+                <div class="col-lg-8">
+                    <input class="form-control" type="text" value="{{user.firstname}}">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-lg-3 control-label">Last name:</label>
+                <div class="col-lg-8">
+                    <input class="form-control" type="text" value="{{user.lastname}}">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-lg-3 control-label">Company:</label>
+                <div class="col-lg-8">
+                    <input class="form-control" type="text" value="{{user.company}}">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-lg-3 control-label">Email:</label>
+                <div class="col-lg-8">
+                    <input class="form-control" type="text" value="{{user.email}}">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-lg-3 control-label">Time Zone:</label>
+                <div class="col-lg-8">
+                    <div class="ui-select">
+                        <select id="user_time_zone" class="form-control">
+                            <option value="Hawaii">(GMT-10:00) Hawaii</option>
+                            <option value="Alaska">(GMT-09:00) Alaska</option>
+                            <option value="Pacific Time (US &amp; Canada)">(GMT-08:00) Pacific Time (US &amp; Canada)</option>
+                            <option value="Arizona">(GMT-07:00) Arizona</option>
+                            <option value="Mountain Time (US &amp; Canada)">(GMT-07:00) Mountain Time (US &amp; Canada)</option>
+                            <option value="Central Time (US &amp; Canada)" selected="selected">(GMT-06:00) Central Time (US &amp; Canada)</option>
+                            <option value="Eastern Time (US &amp; Canada)">(GMT-05:00) Eastern Time (US &amp; Canada)</option>
+                            <option value="Indiana (East)">(GMT-05:00) Indiana (East)</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-3 control-label">Username:</label>
+                <div class="col-md-8">
+                    <input class="form-control" type="text" value="{{user.username}}">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-3 control-label">Password:</label>
+                <div class="col-md-8">
+                    <input class="form-control" type="password" value="{{user.password}}">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-3 control-label">Confirm password:</label>
+                <div class="col-md-8">
+                    <input class="form-control" type="password" value="">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-3 control-label"></label>
+                <div class="col-md-8">
+                    <button class="btn btn-primary"><i class="fa fa-check"></i>&nbsp;Save Changes</button>
+                    <span></span>
+                    <button class="btn btn-default"><i class="fa fa-times"></i>&nbsp;Cancel</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

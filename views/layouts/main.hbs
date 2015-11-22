@@ -4,9 +4,13 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" />
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="../css/template.css" />
+    <link rel="stylesheet" href="../css/storelist.css" />
+    <link rel="stylesheet" href="../css/xeditable.css" />
+    <link rel="stylesheet" href="../css/grades.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.7.0/underscore-min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.5.0/lodash.js"></script>
 </head>
 <body>
 <!--
@@ -37,6 +41,7 @@
                         <li><a href="/address">Address Book</a></li>
                         <li><a href="/shop">Shopping Cart</a></li>
                         <li><a href="/shows">Master / Details</a></li>
+                        <li><a href="/grades">Grade Book</a> </li>
                         <li><a href="/chance">Random Information</a></li>
                         <!--<li class="divider"></li>-->
                         <!--<li class="dropdown-header">Application Info</li>-->
@@ -85,8 +90,25 @@
         <!--</div>-->
     <!--</div>-->
     <div class="container">
-        <p>West Plains Design - <a href="/license" class="text-muted">MIT Licensed</a>, 2015</p>
+        <p>West Plains Design - <a href="/license" class="text-muted">Simple Data - MIT Licensed</a>, <span id="displayYear"></span></p>
     </div>
 </div>
+<script>
+
+    var yearModule = ( function( window, undefined ) {
+        function setYear(){
+            var currentDate = new Date(),
+                    yearElement = document.getElementById('displayYear');
+            yearElement.innerText = currentDate.getFullYear().toString();
+        }
+        // explicitly return public methods when this object is instantiated
+        return {
+            setYear : setYear
+        };
+    } )( window );
+
+    yearModule.setYear();
+
+</script>
 </body>
 </html>

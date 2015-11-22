@@ -20,5 +20,10 @@ module.exports = {
             res.render('apps/chance', data);
         });
 
+        app.get('/grades', function (req, res){
+            var data = { description: 'AngularJS grade book example application.'}
+            res.render('apps/grades', data);
+        });
+
     }
 };

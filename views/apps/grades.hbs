@@ -1,0 +1,27 @@
+<h4 class="text-muted">{{description}}</h4>
+
+
+<div ng-app="gradesApp">
+
+    <ul class="nav nav-pills">
+        <li role="presentation" ui-sref-active="active"><a ui-sref="home" >Grade Book</a></li>
+        <li role="presentation" ui-sref-active="active"><a ui-sref="about" >About</a></li>
+    </ul>
+
+    <div ui-view></div>
+
+</div>
+
+
+
+
+
+<script src="../vendor/angular/angular.js"></script>
+<script src="../vendor/angular/angular-ui-router.min.js"></script>
+<script src="../vendor/xeditable/xeditable.js"></script>
+<script src="../app_grades/app.js"></script>
+<script src="../app_grades/gradehome/homeController.js"></script>
+<script src="../app_grades/services/validationService.js"></script>
+<script src="../app_grades/services/calculationService.js"></script>
+<script src="../app_grades/directives/direcrtives.js"></script>
+<script src="../app_grades/filters/filters.js"></script>

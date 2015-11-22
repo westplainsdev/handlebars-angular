@@ -14,15 +14,19 @@ shopApp.config(function($stateProvider, $urlRouterProvider) {
             controller: 'shop.homeController'
         })
 
+        .state('checkout', {
+            url: '/checkout',
+            templateUrl: '../app_shop/checkout/checkout.html',
+            controller: 'shop.checkoutController'
+        })
+
         // ABOUT PAGE AND MULTIPLE NAMED VIEWS =================================
         .state('about', {
-           url: '/about',
+            url: '/about',
             templateUrl: '../app_shop/about/about.html',
             controller: function($scope) {
-                $scope.message = 'This is a example of a shopping cart.';
+                $scope.message = 'This is a example of a shopping cart with a simple checkout process.';
             }
         });
-
-    // TODO: CHECKOUT - http://bootsnipp.com/snippets/featured/credit-card-form-bootstrap-3
 
 });

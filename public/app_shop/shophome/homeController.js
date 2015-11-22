@@ -1,4 +1,4 @@
-shopApp.controller('shop.homeController', function($scope, ShopFactory){
+shopApp.controller('shop.homeController', function($scope, $state, ShopFactory, CheckOutService){
     $scope.message = "Product Listing";
 
     var taxrate = .07, tax = 0;
@@ -9,11 +9,13 @@ shopApp.controller('shop.homeController', function($scope, ShopFactory){
         total: 0
     };
 
-    $scope.sortField = 'brand';
+    var load = function(){
+        ShopFactory.loadProducts().then(function(response) {
+            $scope.productList = response.data;
+        });
+    };
 
-    ShopFactory.loadProducts().then(function(response) {
-        $scope.productList = response.data;
-    });
+    $scope.sortField = 'brand';
 
     $scope.addToCart = function(product){
 
@@ -39,5 +41,12 @@ shopApp.controller('shop.homeController', function($scope, ShopFactory){
 
         $scope.cartDisplay = cart;
     };
+
+    $scope.checkout = function(){
+        CheckOutService.setCart(cart);
+        $state.go('checkout');
+    };
+
+    load();
 
 });

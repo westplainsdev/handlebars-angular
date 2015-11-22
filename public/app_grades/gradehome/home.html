@@ -1,0 +1,88 @@
+<div class="container">
+    <h3 class="text-muted">Interactive Gradebook</h3>
+    <p>Enter the students name and the grade they received.</p>
+    <form class="form-inline">
+        <div class="form-group" data-ng-class="inputs.nameError ? 'has-error' : ''">
+            <label class="sr-only" for="name">Name</label>
+            <input type="text" class="form-control"
+                   id="name"
+                   data-ng-model="student.name"
+                   focus-me="focusInput"
+                   placeholder="enter name"
+                   data-ng-class="inputs.gradeError ? 'has-error' : ''" />
+        </div>
+        <div class="form-group">
+            <label class="sr-only" for="grade">Grade</label>
+            <input type="number" min="0"
+                   max="100"
+                   class="form-control"
+                   id="grade"
+                   data-ng-model="student.grade"
+                   focus-me="focusInput"
+                   placeholder="0" required />
+        </div>
+
+        <button type="submit" data-ng-click="addGrade(); focusInput=true" class="btn btn-primary">Add Student</button>
+    </form>
+
+    <div class="row">
+        <div class="col-md-12">&nbsp;</div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-md-3">
+            <h5 class="text-muted">GRADES SUMMARY</h5>
+            <ul class="list-group">
+                <li class="list-group-item">
+                    <span class="label label-success label-as-badge pull-right" data-ng-bind="overall.high | percentage"></span>
+                    Highest
+                </li>
+                <li class="list-group-item">
+                    <span class="label label-info label-as-badge pull-right" data-ng-bind="overall.avg | percentage"></span>
+                    Average
+                </li>
+                <li class="list-group-item">
+                    <span class="label label-warning label-as-badge pull-right" data-ng-bind="overall.min | percentage"></span>
+                    Lowest
+                </li>
+            </ul>
+        </div>
+        <div class="col-md-1"></div>
+        <div data-ng-show="studentCollection.length" class="contaier">
+            <div class="col-md-6">
+                <h5 class="text-muted">STUDENTS AND GRADES</h5>
+                <table class="table table-striped table-bordered table-condensed">
+                    <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Grade</th>
+                        <th>&nbsp;</th>
+                    </tr>
+                    </thead>
+                    <tr data-ng-repeat="student in studentCollection track by $index" gradecheck="student.grade">
+                        <td>
+                            <a href="#" editable-text="student.name"
+                               buttons="no"
+                               blur="submit"
+                               onbeforesave="checkName($data)"
+                               onaftersave="updateCollections(student)">{{ student.name || "empty" | capitalize}}</a>
+                        </td>
+                        <td><a href="#" editable-text="student.grade"
+                               buttons="no"
+                               blur="submit"
+                               onbeforesave="checkGrade($data)"
+                               onaftersave="updateCollections(student)">{{ student.grade || 0 | percentage}}</a>
+                        </td>
+                        <td class="text-center"><a href="#" data-ng-click="removeStudent(student)" class="text-danger"><i class="fa fa-trash"></i></a>
+                        </td>
+                    </tr>
+                </table>
+                <p class="pull-right">
+                    <button type="button" class="btn btn-danger" data-ng-click="resetAll()">Reset Page</button>
+                </p>
+            </div>
+        </div>
+    </div>
+
+</div>
