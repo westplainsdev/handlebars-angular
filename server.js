@@ -3,7 +3,7 @@ var bodyParser = require('body-parser');
 // var request = require('request');
 var moment = require('moment');
 
-;var app = express();
+var app = express();
 var expressHbs = require('express3-handlebars');
 var config = require('./configuration/config.js');
 var routes = require('./routes/routes');
