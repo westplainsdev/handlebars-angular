@@ -1,8 +1,8 @@
 <h2>Contact Management</h2>
 
 <ul class="nav nav-pills navbar-right">
-    <li role="presentation" ng-class="{active: toggle.displayType == 'list'}" ><a href="" ng-click="swapViews('list')"><i class="fa fa-list"></i>&nbsp; List</a></li>
-    <li role="presentation" ng-class="{active: toggle.displayType == 'grid'}"><a href="" ng-click="swapViews('grid')"><i class="fa fa-th"></i>&nbsp; Grid</a></li>
+    <li role="presentation" ng-class="{active: toggle.displayType === 'list'}" ><a href="" ng-click="swapViews('list')"><i class="fa fa-list"></i>&nbsp; List</a></li>
+    <li role="presentation" ng-class="{active: toggle.displayType === 'grid'}"><a href="" ng-click="swapViews('grid')"><i class="fa fa-th"></i>&nbsp; Grid</a></li>
 
 </ul>
 
@@ -19,7 +19,7 @@
     </div>
 </form>
 <p style="padding: 10px;"></p>
-<table class="table table-bordered table-striped table-condensed" ng-show="addressList.length && toggle.displayType == 'list'">
+<table class="table table-bordered table-striped table-condensed" ng-show="addressList.length && toggle.displayType === 'list'">
     <thead>
     <tr>
         <th>
@@ -52,7 +52,7 @@
     </tbody>
 </table>
 
-<div ng-show="addressList.length && toggle.displayType == 'grid'">
+<div ng-show="addressList.length && toggle.displayType === 'grid'">
     <div style="width: 220px; margin-right: 5px; margin-bottom: 5px;"
          class="panel panel-default pull-left"
          ng-repeat="address in addressList | filter:query | orderBy:sortField:toggle.reverse">

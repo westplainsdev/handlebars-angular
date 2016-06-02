@@ -36,7 +36,7 @@ addressApp.controller('address.bookController', function ($scope, ContactFactory
     $scope.form = {
         contact: {}
     };
-    // this is used as just an object just to hold page use fields.
+    // this is used as just an object to hold page use fields.
     $scope.toggle = {
         caretOne: false,
         caretTwo: false,
