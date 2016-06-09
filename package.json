@@ -1,6 +1,6 @@
 {
   "name": "spaTeamplate",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Single Page App Template",
   "main": "server.js",
   "dependencies": {
@@ -27,5 +27,5 @@
     "start": "node server.js"
   },
   "author": "Westplains",
-  "license": "N/A"
+  "license": "MIT"
 }
