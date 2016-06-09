@@ -30,12 +30,12 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                <li><a href='/simple'>Simple example</a></li>
-                <li><a href='/complex'>Complex example</a></li>
-                <li><a href='/loop'>Loop example</a></li>
-                <li><a href='/logic'>Logic example</a></li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-list"></i>&nbsp;Full Examples <span class="caret"></span></a>
+                <li class="{{#if simple}}active{{/if}}"><a href='/simple'>Simple example</a></li>
+                <li class="{{#if complex}}active{{/if}}"><a href='/complex'>Complex example</a></li>
+                <li class="{{#if loop}}active{{/if}}"><a href='/loop'>Loop example</a></li>
+                <li class="{{#if logic}}active{{/if}}"><a href='/logic'>Logic example</a></li>
+                <li class="dropdown {{#if full}}active{{/if}}">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-list"></i>&nbsp;&nbsp;Full Examples <span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
                         <li><a href="/question">Contact Form</a></li>
                         <li><a href="/address">Address Book</a></li>
@@ -53,8 +53,8 @@
 
 
             <ul class="nav navbar-nav navbar-right">
-               <li class="dropdown">
-                   <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-info-circle"></i>&nbsp;About <span class="caret"></span></a>
+               <li class="dropdown {{#if about}}active{{/if}}">
+                   <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-info-circle"></i>&nbsp;&nbsp;About <span class="caret"></span></a>
                    <ul class="dropdown-menu" role="menu">
                        <li><a href="/reference">Technology Used</a></li>
                        <li><a href="/license">License Info</a></li>

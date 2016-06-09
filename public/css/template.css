@@ -29,6 +29,11 @@ body {
     color: #f9f9f9;
 }
 
+.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:hover, .navbar-default .navbar-nav>.active>a:focus {
+    color: #ffffff;
+    background-color: #516294;
+}
+
 .footer {
     position: absolute;
     bottom: 0;

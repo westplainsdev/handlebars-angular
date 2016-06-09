@@ -10,16 +10,17 @@ module.exports = {
         });
 
         app.get('/license', function(req, res){
-
-            res.render('license');
+            var data = {about: true};
+            res.render('license', data);
         });
 
         app.get('/reference', function (req, res){
-            res.render('reference');
+            var data = {about: true};
+            res.render('reference', data);
         });
 
         app.get('/simple', function(req, res){
-            var data = {name: 'Gorilla'};
+            var data = {name: 'Gorilla', simple: true};
             res.render('partials/simple', data);
         });
 
@@ -33,7 +34,8 @@ module.exports = {
                     addressType: {
                         typeName: 'residential'
                     }
-                }
+                },
+                complex: true
             };
             res.render('partials/complex', data);
         });
@@ -51,7 +53,8 @@ module.exports = {
 
             var data = {
                 basketballPlayers: basketballPlayers,
-                days: days
+                days: days,
+                loop: true
             };
 
             res.render('partials/loop', data);
@@ -61,7 +64,8 @@ module.exports = {
             var data = {
                 upIsUp: true,
                 downIsUp: false,
-                skyIsBlue: "yes"
+                skyIsBlue: "yes",
+                logic: true
             };
 
             res.render('partials/logic', data);
@@ -84,7 +88,8 @@ module.exports = {
                     timeZone: 'Central Time (US &amp; Canada)',
                     username:'janeuser',
                     password: '11111122333'
-                }
+                },
+                about: true
             };
 
             res.render('partials/myprofile', data);
@@ -92,7 +97,8 @@ module.exports = {
 
         app.get('/question', function (req, res){
             var data = {
-                instructions: 'Fill out the contact form below'
+                instructions: 'Fill out the contact form below',
+                full: true
             };
 
             res.render('partials/question', data);
@@ -106,7 +112,8 @@ module.exports = {
                     email:  req.body.email,
                     subject: req.body.subject,
                     message: req.body.message
-                }
+                },
+                full: true
 
             };
 
