@@ -31,6 +31,17 @@ module.exports = {
             res.send(contactList);
         });
 
+        app.get('/api/loadUrls', function(req, res) {
+            var url = {
+                www: 'example.com',
+                stage: 'example.net',
+                test: 'example.org'
+            };
+    
+            res.send(url);
+
+        });
+
 
         // endpoint targeted by angular application for sending email.
         // see the configuration file referenced above for specific mail settings.
