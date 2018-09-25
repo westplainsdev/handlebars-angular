@@ -14,3 +14,5 @@ SPA sample application.
 
 1. run npm install 
 1. run npm start
+
+The application is configured to run on //localhost:3010.
