@@ -1,9 +1,9 @@
-handlebars-angular
+Handlebars Angular
 ==================
 
 ![alt text](homepage.PNG "Home Page")
 
-A node server using express and handlebars with a smattering of angular spa's tossed in for fun.
+SPA sample application.
 
 ![alt text](addressbook.PNG "SPA Demo")
 
