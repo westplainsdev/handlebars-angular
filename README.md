@@ -1,4 +1,4 @@
-## Handlebars Angular
+## handlebars angular
 
 ![alt text](homepage.PNG "Home Page")
 
